@@ -11,20 +11,20 @@
 
 def upcase_ascii_transform(char, number)
   ascii = char.ord + number
-  return ascii > 89 ? (ascii - 26).chr : ascii.chr
-  ascii.chr
+  ascii > 89 ? (ascii - 26).chr : ascii.chr
 end
 
 def downcase_ascii_transform(char, number)
   ascii = char.ord + number
   return ascii > 121 ? (ascii - 26).chr : ascii.chr
-  ascii.chr
 end
 
+# broke this part of the function, does not return anything at the moment
+# if I take away the return it doens't return non-letter characters unmodified.
 def ceasar_cipher(string, number) 
   arr = string.split('')
   result = arr.map do |char| 
-  char if !char.match(/[a-zA-Z]/)
+  return char if !char.match(/[a-zA-Z]/)
   char.upcase == char ? upcase_ascii_transform(char, number) : downcase_ascii_transform(char, number)
   end
   result.join
