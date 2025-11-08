@@ -32,7 +32,7 @@ end
 def ceasar_cipher(string, number) 
   arr = string.split('')
   result = arr.map do |char| 
-    if char == " "
+    if !char.match(/[a-zA-Z]/)
       char
     elsif char.upcase == char
       upcase_ascii_transform(char, number)
