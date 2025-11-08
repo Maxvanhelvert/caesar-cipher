@@ -11,34 +11,21 @@
 
 def upcase_ascii_transform(char, number)
   ascii = char.ord + number
-  if ascii > 89
-    offset = ascii - 26
-    offset.chr
-  else 
-    ascii.chr
-  end
+  return ascii > 89 ? (ascii - 26).chr : ascii.chr
+  ascii.chr
 end
 
 def downcase_ascii_transform(char, number)
   ascii = char.ord + number
-  if ascii > 121 
-    offset = ascii - 26
-    offset.chr
-  else 
-    ascii.chr
-  end
+  return ascii > 121 ? (ascii - 26).chr : ascii.chr
+  ascii.chr
 end
 
 def ceasar_cipher(string, number) 
   arr = string.split('')
   result = arr.map do |char| 
-    if !char.match(/[a-zA-Z]/)
-      char
-    elsif char.upcase == char
-      upcase_ascii_transform(char, number)
-    else 
-      downcase_ascii_transform(char, number)
-    end
+  char if !char.match(/[a-zA-Z]/)
+  char.upcase == char ? upcase_ascii_transform(char, number) : downcase_ascii_transform(char, number)
   end
   result.join
 end
