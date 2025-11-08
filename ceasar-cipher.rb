@@ -16,17 +16,20 @@ end
 
 def downcase_ascii_transform(char, number)
   ascii = char.ord + number
-  return ascii > 121 ? (ascii - 26).chr : ascii.chr
+  ascii > 121 ? (ascii - 26).chr : ascii.chr
 end
 
-# broke this part of the function, does not return anything at the moment
-# if I take away the return it doens't return non-letter characters unmodified.
-def ceasar_cipher(string, number) 
+def caesar_cipher(string, number) 
   arr = string.split('')
+
   result = arr.map do |char| 
-  return char if !char.match(/[a-zA-Z]/)
-  char.upcase == char ? upcase_ascii_transform(char, number) : downcase_ascii_transform(char, number)
+    if char.match?(/[a-zA-Z]/)
+     char == char.upcase ? upcase_ascii_transform(char, number) : downcase_ascii_transform(char, number)
+    else
+      char 
+    end
   end
+
   result.join
 end
 
@@ -36,4 +39,4 @@ puts "Chose an offset:"
 user_offset = gets.chomp.to_i
 
 puts "Your encoded word or sentence"
-puts ceasar_cipher(user_string, user_offset)
+puts caesar_cipher(user_string, user_offset)
