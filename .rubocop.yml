@@ -14,3 +14,11 @@ plugins:
 
 AllCops:
   NewCops: enable
+
+inherit_from: ~/.rubocop.yml
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never

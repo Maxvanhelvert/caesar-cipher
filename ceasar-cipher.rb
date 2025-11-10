@@ -20,7 +20,7 @@ def downcase_ascii_transform(char, number)
 end
 
 def caesar_cipher(string, number)
-  arr = string.split('')
+  arr = string.split("")
 
   result = arr.map do |char|
     if char.match?(/[a-zA-Z]/)
@@ -33,10 +33,10 @@ def caesar_cipher(string, number)
   result.join
 end
 
-puts 'Chose a word or sentence to encode:'
+puts "Chose a word or sentence to encode:"
 user_string = gets.chomp
-puts 'Chose an offset:'
+puts "Chose an offset:"
 user_offset = gets.chomp.to_i
 
-puts 'Your encoded word or sentence'
+puts "Your encoded word or sentence"
 puts caesar_cipher(user_string, user_offset)
